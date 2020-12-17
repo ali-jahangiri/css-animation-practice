@@ -1,0 +1,536 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  display: block;
+  margin-top: 3rem;
+}
+
+#btn-1 {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid rebeccapurple;
+  padding: 10px 5px;
+  color: gray;
+  transition: box-shadow 0.3s, color 0.3s;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#btn-1:hover {
+  box-shadow: 0px 9px 30px -10px rebeccapurple;
+}
+
+#btn-1 p {
+  padding: 0;
+  position: relative;
+  z-index: 2;
+}
+
+#btn-1::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: rebeccapurple;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: 0.3s;
+  transform: rotate(-90deg);
+  transform-origin: bottom right;
+  border-radius: 2px;
+}
+
+#btn-1:hover {
+  color: white;
+  box-shadow: 0px 9px 30px -10px rebeccapurple;
+}
+
+#btn-1:hover::after {
+  transform: rotate(0deg);
+}
+
+#btn-2 {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid slategrey;
+  padding: 10px 5px;
+  color: gray;
+  transition: box-shadow 0.3s, color 0.3s;
+  margin: 10px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+#btn-2:hover {
+  box-shadow: 0px 9px 30px -10px slategrey;
+}
+
+#btn-2 p {
+  position: relative;
+  z-index: 2;
+}
+
+#btn-2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: slategrey;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  transition: 0.3s;
+}
+
+#btn-2:hover {
+  color: white;
+}
+
+#btn-2:hover::after {
+  left: 0;
+}
+
+#btn-3 {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid lightcoral;
+  padding: 10px 5px;
+  color: gray;
+  transition: box-shadow 0.3s, color 0.3s;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#btn-3:hover {
+  box-shadow: 0px 9px 30px -10px lightcoral;
+}
+
+#btn-3 p {
+  position: relative;
+  z-index: 2;
+  color: gray;
+  transition: 0.3s 0.3s;
+}
+
+#btn-3::after, #btn-3::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: lightcoral;
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: 1s;
+  transform: rotateX(90deg);
+  border-radius: 3px;
+}
+
+#btn-3::before {
+  background-color: lightcoral;
+  transform: rotateY(90deg);
+}
+
+#btn-3:hover p {
+  color: white;
+}
+
+#btn-3:hover::after {
+  transform: rotateX(0deg);
+}
+
+#btn-3:hover::before {
+  transform: rotateY(0deg);
+}
+
+#btn-4 {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid lightsalmon;
+  padding: 10px 5px;
+  color: gray;
+  transition: box-shadow 0.3s, color 0.3s;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#btn-4:hover {
+  box-shadow: 0px 9px 30px -10px lightsalmon;
+}
+
+#btn-4 span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: -100%;
+  background-color: lightsalmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#btn-4:hover span {
+  top: 0;
+}
+
+#btn-5 {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid lightcyan;
+  padding: 10px 5px;
+  color: gray;
+  transition: box-shadow 0.3s, color 0.3s;
+  margin: 10px 0;
+  overflow: hidden;
+  position: relative;
+  transition: background-color .1s;
+}
+
+#btn-5:hover {
+  box-shadow: 0px 9px 30px -10px lightcyan;
+}
+
+#btn-5::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 200%;
+  background-color: white;
+  height: 30px;
+  transition: 0.5s;
+  transform: rotate(45deg);
+  top: 0;
+  left: -200%;
+}
+
+#btn-5:hover {
+  background-color: lightcyan;
+}
+
+#btn-5:hover::after {
+  left: 100%;
+}
+
+#btn-6 {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid goldenrod;
+  padding: 10px 5px;
+  color: gray;
+  transition: box-shadow 0.3s, color 0.3s;
+  margin: 10px 0;
+  background-color: lightslategrey;
+  position: relative;
+  color: white;
+  overflow: hidden;
+  padding: 0;
+  transition: border-color 0.3s;
+}
+
+#btn-6:hover {
+  box-shadow: 0px 9px 30px -10px goldenrod;
+}
+
+#btn-6 p {
+  transition: 0.3s;
+  padding: 10px 5px;
+  background-color: goldenrod;
+}
+
+#btn-6::after {
+  content: attr(data-text);
+  display: block;
+  position: absolute;
+  background-color: lightslategrey;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.3s;
+  transform: translate(-100%, 100%);
+}
+
+#btn-6:hover {
+  border-color: lightslategrey;
+}
+
+#btn-6:hover p {
+  transform: translate(100%, -100%);
+}
+
+#btn-6:hover::after {
+  transform: translate(0%, 0%);
+}
+
+#btn-7 {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid mediumseagreen;
+  padding: 10px 5px;
+  color: gray;
+  transition: box-shadow 0.3s, color 0.3s;
+  margin: 10px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+#btn-7:hover {
+  box-shadow: 0px 9px 30px -10px mediumseagreen;
+}
+
+#btn-7::after {
+  content: attr(data-text);
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #80d5a6;
+  transition: 0.6s ease-in-out;
+  transform: scale(1.9);
+  color: white;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn-7:hover::after {
+  transform: scale(1);
+  opacity: 1;
+}
+
+#btn-8 {
+  color: gray;
+  background-color: transparent;
+  border: none;
+  position: relative;
+  padding: 10px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+#btn-8 p {
+  transition: color 0.3s 0.1s;
+  position: relative;
+  z-index: 2;
+}
+
+#btn-8:hover {
+  color: white;
+}
+
+#btn-8:hover span {
+  transform: scaleY(1);
+}
+
+#btn-8 > div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#btn-8 > div span {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(54, 53, 53, 0.767);
+  display: block;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: 0.2s;
+}
+
+#btn-8 > div span:first-child {
+  transition-delay: 0.1s;
+}
+
+#btn-8 > div span:nth-child(2) {
+  transition-delay: 0.150s;
+}
+
+#btn-8 > div span:last-child {
+  transition-delay: 0.2s;
+}
+
+#btn-9 {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid thistle;
+  padding: 10px 5px;
+  color: gray;
+  transition: box-shadow 0.3s, color 0.3s;
+  margin: 10px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+#btn-9:hover {
+  box-shadow: 0px 9px 30px -10px thistle;
+}
+
+#btn-9 p {
+  position: relative;
+  z-index: 2;
+  transition: 0.3s;
+}
+
+#btn-9::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: thistle;
+  position: absolute;
+  border-radius: 50%;
+  left: 0;
+  top: -100%;
+  transition: 0.5s;
+}
+
+#btn-9:hover p {
+  color: white;
+}
+
+#btn-9:hover::after {
+  transform: scale(3.3);
+}
+
+#btn-10 {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid tan;
+  padding: 10px 5px;
+  color: gray;
+  transition: box-shadow 0.3s, color 0.3s;
+  margin: 10px 0;
+  position: relative;
+  perspective: 174px;
+}
+
+#btn-10:hover {
+  box-shadow: 0px 9px 30px -10px tan;
+}
+
+#btn-10::after, #btn-10::before {
+  content: attr(data-calender-one);
+  width: 100%;
+  height: 100%;
+  background-color: #d9c09e;
+  position: absolute;
+  border-radius: 3px;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.9s;
+  transform-origin: top;
+  transform: rotateX(624deg);
+  z-index: 5;
+}
+
+#btn-10::before {
+  content: attr(data-calender-two);
+  background-color: #e0ccb1;
+  transition-delay: 0.3s;
+  z-index: 10;
+}
+
+#btn-10:hover::after, #btn-10:hover::before {
+  transform: rotateX(360deg);
+}
+
+.img {
+  width: 30rem;
+  height: 30rem;
+  position: relative;
+  margin: 20px;
+  background-image: linear-gradient(0deg, #000000ad, #e6343400 30vh), url(https://thepopularlist.com/wp-content/uploads/2019/11/weird-stock-images-photos-funny-pic30.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 150%;
+  border-radius: 10px;
+  transition: 0.3s !important;
+}
+
+.img .desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20px 40px;
+  color: white;
+  font-size: 1.4rem;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.img:hover {
+  background-size: 200%;
+}
+
+.img:hover .desc {
+  opacity: 1;
+}
+
+.img__2 {
+  width: 30rem;
+  height: 30rem;
+  margin: 30px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.img__2 img {
+  width: 100%;
+  height: 100%;
+  transition: 0.3s;
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.img__2 > div {
+  background-color: #3a3a3a;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: white;
+  font-size: 1.3rem;
+  transition: 0.3s;
+  padding: 20px;
+}
+
+.img__2:hover img {
+  top: -25%;
+}
+
+.img__2:hover > div {
+  top: 75%;
+}
+/*# sourceMappingURL=style.css.map */

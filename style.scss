@@ -1,0 +1,503 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    outline: none;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    display: block;
+    margin-top: 3rem;
+}
+
+@mixin btn($border-color, $shadow) {
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px solid $border-color;
+    padding: 10px 5px;
+    color: gray;
+    transition: box-shadow 0.3s, color 0.3s;
+    margin: 10px 0;
+
+    @if ($shadow==true) {
+        &:hover {
+            box-shadow: 0px 9px 30px -10px $border-color;
+        }
+    }
+}
+
+#btn-1 {
+    @include btn(rebeccapurple, true);
+    position: relative;
+    overflow: hidden;
+
+    p {
+        padding: 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: rebeccapurple;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.3s;
+        transform: rotate(-90deg);
+        // coming background directions
+        transform-origin: bottom right;
+        border-radius: 2px;
+    }
+
+    &:hover {
+        color: white;
+        box-shadow: 0px 9px 30px -10px rebeccapurple;
+
+        &::after {
+            transform: rotate(0deg);
+        }
+    }
+}
+
+#btn-2 {
+    @include btn(slategrey, true);
+    overflow: hidden;
+    position: relative;
+
+    p {
+        position: relative;
+        z-index: 2;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: slategrey;
+        position: absolute;
+        top: 0;
+        left: -100%;
+        transition: 0.3s;
+        // NOTE : if we need a other direction for coming into play we can simply change top || translateY() and use them
+        //for this perpose we can use transform = translateX(-100%)
+        // transform: translateX(-100%);
+    }
+
+    &:hover {
+        color: white;
+
+        &::after {
+            left: 0;
+            // for other way 
+            // transform: translateX(0%);
+        }
+    }
+}
+
+#btn-3 {
+    @include btn(lightcoral, true);
+    position: relative;
+    overflow: hidden;
+
+    p {
+        position: relative;
+        z-index: 2;
+        color: gray;
+        transition: 0.3s 0.3s;
+    }
+
+    &::after,
+    &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: lightcoral;
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 1s;
+        transform: rotateX(90deg);
+        border-radius: 3px;
+
+    }
+
+    &::before {
+        background-color: lightcoral;
+        transform: rotateY(90deg);
+
+    }
+
+    &:hover {
+        p {
+            color: white;
+        }
+
+        &::after {
+            transform: rotateX(0deg);
+
+        }
+
+        &::before {
+            transform: rotateY(0deg);
+
+        }
+    }
+}
+
+#btn-4 {
+    @include btn(lightsalmon, true);
+    position: relative;
+    overflow: hidden;
+
+    span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: -100%;
+        background-color: lightsalmon;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        transition: 0.3s;
+        cursor: pointer;
+    }
+
+    &:hover {
+        span {
+            top: 0;
+        }
+    }
+}
+
+#btn-5 {
+    @include btn(lightcyan, true);
+    overflow: hidden;
+    position: relative;
+    transition: background-color .1s;
+
+    &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 200%;
+        background-color: white;
+        height: 30px;
+        transition: 0.5s;
+        transform: rotate(45deg);
+        top: 0;
+        left: -200%;
+    }
+
+    &:hover {
+        background-color: lightcyan;
+
+        &::after {
+            left: 100%;
+        }
+    }
+}
+
+#btn-6 {
+    @include btn(goldenrod, true);
+    background-color: lightslategrey;
+    position: relative;
+    color: white;
+    overflow: hidden;
+    padding: 0;
+    transition: border-color 0.3s;
+
+    p {
+        transition: 0.3s;
+        padding: 10px 5px;
+        background-color: goldenrod;
+    }
+
+    &::after {
+        content: attr(data-text);
+        display: block;
+        position: absolute;
+        background-color: lightslategrey;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.3s;
+        transform: translate(-100%, 100%);
+    }
+
+    &:hover {
+        border-color: lightslategrey;
+
+        p {
+            // play  with number for new direction creation
+
+            transform: translate(100%, -100%);
+
+        }
+
+        &::after {
+            transform: translate(0%, 0%);
+        }
+    }
+}
+
+
+#btn-7 {
+    @include btn(mediumseagreen, true);
+    overflow: hidden;
+    position: relative;
+
+    &::after {
+        content: attr(data-text);
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: lighten(mediumseagreen, $amount: 20%);
+        transition: 0.6s ease-in-out;
+        transform: scale(1.9);
+        color: white;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &:hover {
+        &::after {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+}
+
+#btn-8 {
+    color: gray;
+    background-color: transparent;
+    border: none;
+    position: relative;
+    padding: 10px;
+    overflow: hidden;
+    border-radius: 5px;
+
+    p {
+        transition: color 0.3s 0.1s;
+        position: relative;
+        z-index: 2;
+
+    }
+
+    &:hover {
+        color: white;
+
+        span {
+            transform: scaleY(1);
+        }
+    }
+
+    &>div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+
+        span {
+            flex: 1;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(54, 53, 53, 0.767);
+            display: block;
+            transform-origin: top;
+            transform: scaleY(0);
+            transition: 0.2s;
+
+            &:first-child {
+                transition-delay: 0.1s;
+            }
+
+            &:nth-child(2) {
+                transition-delay: 0.150s;
+
+            }
+
+            &:last-child {
+                transition-delay: 0.2s;
+
+            }
+        }
+    }
+}
+
+
+#btn-9 {
+    @include btn(thistle, true);
+    position: relative;
+    overflow: hidden;
+
+    p {
+        position: relative;
+        z-index: 2;
+        transition: 0.3s;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: thistle;
+        position: absolute;
+        border-radius: 50%;
+        left: 0;
+        top: -100%;
+        transition: 0.5s;
+    }
+
+    &:hover {
+        p {
+            color: white;
+        }
+
+        &::after {
+            transform: scale(3.3);
+        }
+    }
+}
+
+
+#btn-10 {
+    @include btn(tan, true);
+    position: relative;
+    perspective: 174px;
+
+    &::after,
+    &::before {
+        content: attr(data-calender-one);
+        width: 100%;
+        height: 100%;
+        background-color: lighten(tan, $amount: 5%);
+        position: absolute;
+        border-radius: 3px;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 0.9s;
+        transform-origin: top;
+        transform: rotateX(624deg);
+        z-index: 5;
+    }
+
+    &::before {
+        content: attr(data-calender-two);
+        background-color: lighten(tan, $amount: 10%);
+        transition-delay: 0.3s;
+        z-index: 10;
+    }
+
+    &:hover {
+
+        &::after,
+        &::before {
+            transform: rotateX(360deg);
+        }
+    }
+}
+
+
+
+
+
+.img {
+    width: 30rem;
+    height: 30rem;
+    position: relative;
+    margin: 20px;
+    background-image: linear-gradient(0deg, #000000ad, #e6343400 30vh), url(https://thepopularlist.com/wp-content/uploads/2019/11/weird-stock-images-photos-funny-pic30.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 150%;
+    border-radius: 10px;
+    transition: 0.3s !important;
+
+    .desc {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 20px 40px;
+        color: white;
+        font-size: 1.4rem;
+        opacity: 0;
+        transition: 0.3s;
+    }
+
+    &:hover {
+        background-size: 200%;
+
+        .desc {
+            opacity: 1;
+        }
+    }
+}
+
+// this can handle with trabslateY()
+.img__2 {
+    width: 30rem;
+    height: 30rem;
+    margin: 30px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+
+    img {
+        width: 100%;
+        height: 100%;
+        transition: 0.3s;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    &>div {
+        background-color: rgb(58, 58, 58);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        color: white;
+        font-size: 1.3rem;
+        transition: 0.3s;
+        padding: 20px;
+    }
+
+    &:hover {
+        img {
+            top: -25%;
+        }
+
+        &>div {
+            top: 75%;
+        }
+    }
+}
